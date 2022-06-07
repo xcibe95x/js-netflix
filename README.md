@@ -12,6 +12,7 @@ https://(Da Definire).xcibe95x.com/
 - [Mauro Leoci][cibe]
 
 ### Team Members
+- [Valerio Pescatori][god-davide]
 - [Davide L'Abbate][god-davide]
 - [Leony Manalili][leony]
 - [Gabriele Fiacconi][gabri]
@@ -44,3 +45,4 @@ Netflix and the logo N are registered trademarks of Netflix, Inc.
 [god-davide]: <https://github.com/DavideLAbbate/>
 [leony]: <https://github.com/LeonyMalasanManalili/>
 [gabri]: <https://github.com/gfiacconi/>
+[vale]: <https://github.com/valerio-pescatori/>
