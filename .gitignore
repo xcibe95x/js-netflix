@@ -1,7 +1,8 @@
 # Ignore any personal use or system file that are not needed
 
 # Mac/Linux File
-
 .DS_Store
 
-# Personal use files
+# "Env" File Ignore
+# Contains an api_key variable with the key as a string
+env.js
