@@ -1,0 +1,7 @@
+# Ignore any personal use or system file that are not needed
+
+# Mac/Linux File
+
+.DS_Store
+
+# Personal use files
