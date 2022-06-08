@@ -474,7 +474,7 @@ ul li:not(:first-of-type) a:hover {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 50px;  
 }
 
 .movieinfo-pos {
@@ -583,11 +583,11 @@ ul li:not(:first-of-type) a:hover {
 }
 
 .popular-container {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 210px;
-  background-image: -webkit-gradient(
+  position: absolute;
+  bottom: 0;
+  /* background-image: -webkit-gradient(
     linear,
     left top,
     left bottom,
@@ -597,7 +597,7 @@ ul li:not(:first-of-type) a:hover {
     color-stop(44%, rgba(20, 20, 20, 0.58)),
     color-stop(68%, #141414),
     to(#141414)
-  );
+  ); */
   background-image: -webkit-linear-gradient(
     top,
     rgba(20, 20, 20, 0) 0,
@@ -647,6 +647,11 @@ ul li:not(:first-of-type) a:hover {
 
 /* Movie Cards Sections */
 
+.positioning {
+  margin-top: -250px;
+  z-index: 10;
+  position: relative;
+}
 .movie-section {
   display: flex;
   flex-direction: column;
@@ -694,23 +699,22 @@ ul li:not(:first-of-type) a:hover {
 
 .movie-poster,
 .big-movie-poster {
-  position: relative;
   cursor: pointer;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.movie-poster:hover > .media-player {
+/* .movie-poster:hover > .media-player {
   display: block;
-}
+} */
 
-.movie-poster:first-child:hover > .media-player {
+/* .movie-poster:first-child:hover > .media-player {
   transform: scale(1.2) translateX(24px);
 }
 
 .movie-poster:last-child:hover > .media-player {
   transform: scale(1.2) translateX(-24px);
-}
+} */
 
 /* .movie-poster:hover img:last-child {
 } */
