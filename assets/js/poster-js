@@ -1,0 +1,13 @@
+let movie_Poster = document.querySelectorAll(".movie-poster");
+let media_Player = document.querySelectorAll(".media-player");
+console.log(movie_Poster)
+
+for(let i = 0; i<movie_Poster.length; i++){
+    movie_Poster[i].addEventListener("mouseenter", function position (e){
+        let rect = movie_Poster[i].getBoundingClientRect();
+        media_Player[i].style.top = rect.y;
+        media_Player[i].style.left= rect.x;
+    });
+}
+
+

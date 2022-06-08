@@ -608,7 +608,7 @@ ul li:not(:first-of-type) a:hover {
   flex-direction: column;
   padding: 0 60px 0 60px;
   overflow-x: scroll;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
 }
@@ -666,12 +666,11 @@ ul li:not(:first-of-type) a:hover {
 }
 
 .movie-poster:last-child:hover > .media-player {
-  transform: scale(1.2) translateX(-25px);
+  transform: scale(1.2) translateX(-24px);
 }
 
-.movie-poster:hover img:last-child {
-  display: none;
-}
+/* .movie-poster:hover img:last-child {
+} */
 
 .top10flex:hover img:last-child {
   display: block;
@@ -679,7 +678,7 @@ ul li:not(:first-of-type) a:hover {
 
 .media-player {
   display: none;
-  position: relative;
+  position: absolute;
   z-index: 999;
   height: 270px;
   width: 284px;
