@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 function paintPlayer() {
   let movie_Poster = document.querySelectorAll(".movie-poster");
   let media_Player = document.querySelector(".media-player");
@@ -14,6 +15,11 @@ let movie_Poster = document.querySelectorAll(".movie-poster");
 let media_Player = document.querySelector(".media-player");
 console.log(movie_Poster);
 >>>>>>> parent of 68ca290 (Merge branch 'xcibe95x:main' into main)
+=======
+let movie_Poster = document.querySelectorAll(".movie-poster");
+let media_Player = document.querySelector(".media-player");
+console.log(movie_Poster);
+>>>>>>> parent of 68ca290 (Merge branch 'xcibe95x:main' into main)
 
 for (let i = 0; i < movie_Poster.length; i++) {
   movie_Poster[i].addEventListener("mouseenter", function position(e) {
@@ -24,6 +30,7 @@ for (let i = 0; i < movie_Poster.length; i++) {
   });
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -44,15 +51,20 @@ for (let i = 0; i < movie_Poster.length; i++) {
 >>>>>>> parent of e5b23c7 (fetching?)
 =======
 >>>>>>> parent of 68ca290 (Merge branch 'xcibe95x:main' into main)
+=======
+>>>>>>> parent of 68ca290 (Merge branch 'xcibe95x:main' into main)
 media_Player.addEventListener("mouseleave", () => {
   media_Player.style.display = "none";
 });
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f0be276b1a1472f525d4ac82e97bbef4c47deec9
 =======
 >>>>>>> parent of e5b23c7 (fetching?)
+=======
+>>>>>>> parent of 68ca290 (Merge branch 'xcibe95x:main' into main)
 =======
 >>>>>>> parent of 68ca290 (Merge branch 'xcibe95x:main' into main)
 function cumulativeOffset(element) {
