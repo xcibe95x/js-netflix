@@ -1,3 +1,4 @@
+
 let movie_Poster = document.querySelectorAll(".movie-poster");
 let media_Player = document.querySelector(".media-player");
 console.log(movie_Poster)

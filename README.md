@@ -12,7 +12,7 @@ https://(Da Definire).xcibe95x.com/
 - [Mauro Leoci][cibe]
 
 ### Team Members
-- [Valerio Pescatori][god-davide]
+- [Valerio Pescatori][vale]
 - [Davide L'Abbate][god-davide]
 - [Leony Manalili][leony]
 - [Gabriele Fiacconi][gabri]
