@@ -178,8 +178,8 @@ body {
 }
 
 .button--round-dark {
-  padding: 0.5em;
-  color: grey;
+  padding: 0.75em;
+  color: white;
   border-radius: 50%;
   background-color: rgba(20, 20, 20, 0.75);
   border: 2px solid grey;
