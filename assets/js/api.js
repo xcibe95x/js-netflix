@@ -34,7 +34,7 @@ function callAPI (page, container) {
 }
 
 // Create Film Cards
-function createCard(container, filmPoster, title, id) {
+function createCard(container, filmPoster, title, id, cardType = 0) {
     let logoImage = ""; 
     let logoAPI = baseURL + "/3/movie/" + id + "/images?api_key=" + api_key;
 
