@@ -43,21 +43,25 @@ function createCard(container, filmPoster, title, id, cardType = 0) {
     .then(logo => {
     
     // Make Logo File Path
-    if (logo.logos[0] != undefined && logo.logos != '') {
+    if (logo.logos[0] != undefined) {
         console.log(logo.logos)
         logoImage = posterAPI + logo.logos[0].file_path;
     }
-    
-    
+
     // Make Image File Path
     filmPoster = posterAPI + filmPoster;
+
+    let altTitle = title;
+    if (logo.logos.length == 0) {     
+        altTitle = '';
+    }
 
     // Add Code Snippet - Skip broken Film
     if (id != 831728) {
         container.innerHTML += `
         <div class="movie-poster">
-            <img class="movie-logo" src="${logoImage}" alt="${title}">
-            <img src="${filmPoster}" alt="${title}">
+            <img class="movie-logo" src="${logoImage}" alt="${altTitle}">
+            <img src="${filmPoster}" alt="${altTitle}">
         </div>`
     }
 
