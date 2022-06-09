@@ -43,7 +43,8 @@ function createCard(container, filmPoster, title, id, cardType = 0) {
     .then(logo => {
     
     // Make Logo File Path
-    if (logo.logos[0] != undefined) {
+    if (logo.logos[0] != undefined && logo.logos != '') {
+        console.log(logo.logos)
         logoImage = posterAPI + logo.logos[0].file_path;
     }
     
