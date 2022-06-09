@@ -673,11 +673,35 @@ ul li:not(:first-of-type) a:hover {
   max-width: 20%;
 }
 
+.e-poster-container {
+  display: flex;
+  gap: 5px;
+  max-width: 20%;
+}
+
+.movie-poster {
+  position: relative;
+}
+
+/* Poster Logo End */
+
 .movie-poster > img {
   max-height: 160px;
   max-width: 284px;
   width: max(260px, 16vw);
   border-radius: 4px;
+}
+
+/* Posters Logo */
+.movie-logo {
+  position: absolute;
+  width: 50% !important;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  margin: auto;
 }
 
 .big-movie-poster img {
