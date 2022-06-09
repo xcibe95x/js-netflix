@@ -51,6 +51,7 @@ function createCard(container, filmPoster, title, id, cardType = 0) {
     // Make Image File Path
     filmPoster = posterAPI + filmPoster;
 
+    // Suppress alternative text for empty array
     let altTitle = title;
     if (logo.logos.length == 0) {     
         altTitle = '';
@@ -61,7 +62,7 @@ function createCard(container, filmPoster, title, id, cardType = 0) {
         container.innerHTML += `
         <div class="movie-poster">
             <img class="movie-logo" src="${logoImage}" alt="${altTitle}">
-            <img src="${filmPoster}" alt="${altTitle}">
+            <img src="${filmPoster}" alt="${title}">
         </div>`
     }
 
