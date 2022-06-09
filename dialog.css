@@ -94,8 +94,6 @@ body {
   font-family: "Netflix Sans";
   width: 100%;
   min-width: 216px;
-  overflow-x: hidden;
-  position: relative;
 }
 
 * {
@@ -104,11 +102,25 @@ body {
   box-sizing: border-box;
 }
 
-/* dialog */
+/* DIALOG */
+
+.opacity-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 .dialog {
-  width: 60%;
+  position: relative;
+  top: 2em;
+  width: 80%;
+  max-width: 850px;
   margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--black);
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
 }
 
 .dialog__img-shadow {
@@ -130,103 +142,50 @@ body {
   width: 100%;
 }
 
-/* FROM STYLE.CSS */
-
-.movieinfo {
-  max-width: 636px;
-  height: 392px;
+.dialog__overlay {
   position: absolute;
-  top: 200px;
-  left: 60px;
-
+  bottom: 20%;
+  left: 4%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 15px;
 }
 
-.movieposter__logo {
-  min-width: 353px;
-  height: 115px;
-  background-image: url(./assets/img/posters/MovieName.png);
-  background-position: bottom center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.dialog__logo {
+  width: 50%;
 }
 
-.movieposter__supplemental-message {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  max-width: 408px;
-  height: 38px;
-  gap: 15px;
-  word-wrap: normal;
-  white-space: nowrap;
-
-  font-size: max(24px, 1.6vw);
-  color: var(--white);
-  font-weight: 500;
-}
-
-.movieposter__description {
-  margin-top: 10px;
-  font-size: max(16px, 1.3vw);
-  font-weight: 400;
-  color: var(--white);
-}
-
-.movieposter__riproduci {
-  display: flex;
+.dialog__button {
+  display: inline-flex;
+  gap: 1em;
   justify-content: center;
-  gap: 20px;
-  max-width: 433px;
-  height: 62px;
-}
-
-.play {
-  width: 32px;
-  height: 32px;
-  padding: 5px;
-  margin-right: 12px;
-}
-
-.btn-riproduci {
-  display: flex;
-  width: 194px;
-  height: 50px;
-  background: var(--white);
-  border-radius: 4px;
-  padding: 16px 22px;
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 28px;
-  border: 0;
   align-items: center;
-  white-space: nowrap;
-  color: black;
-  text-decoration: none;
+  background-color: #fff;
+  padding: 0.5em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: clamp(10px, 1.5vw, 14px);
+  margin-top: 2em;
+  margin-right: 0.5em;
+  cursor: pointer;
 }
 
-.btn-riproduci:hover {
-  background: var(--smokeWhite);
+.dialog__button > img {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  padding: 0.15em;
 }
 
-.btn-info {
-  background: var(--clearwhite);
-  color: var(--white);
+.button--round-dark {
+  padding: 0.5em;
+  color: grey;
+  border-radius: 50%;
+  background-color: rgba(20, 20, 20, 0.75);
+  border: 2px solid grey;
 }
 
-.btn-info:hover {
-  background: rgba(255, 255, 255, 0.25);
+/* DIALOG CONTENT */
+.dialog__text {
+  padding: 4%;
 }
-
-.info {
-  width: 32px;
-  height: 32px;
-  padding: 3px;
-  margin-right: 16px;
-}
-
-/* FINE STYLE.CSS */
