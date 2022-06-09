@@ -7,27 +7,62 @@
     <link rel="stylesheet" href="dialog.css" />
     <link rel="stylesheet" href="./assets/fontawesome/css/all.css" />
     <title>Document</title>
+    <script type="text/javascript" src="./assets/js/env.js"></script>
   </head>
   <body>
     <div class="opacity-overlay">
       <div class="dialog">
+        <!-- DIALOG IMAGE + OVERLAY  -->
         <div class="dialog__img-shadow">
           <img class="dialog__img" src="./assets/img/posters/MoviePoster.png" alt="img" />
-        </div>
-        <div class="dialog__overlay">
-          <img class="dialog__logo" src="./assets/img/posters/MovieName.png" alt="Movie logo" />
-          <div class="dialog__controls">
-            <button class="dialog__button"><img src="./assets/img/VectorPlay.png" alt="play icon" /> Riproduci</button>
-            <button class="dialog__button button--round-dark">
-              <i class="far fa-plus"></i>
-            </button>
-            <button class="dialog__button button--round-dark">
-              <i class="far fa-thumbs-up"></i>
-            </button>
+          <div class="dialog__overlay">
+            <img class="dialog__logo" src="./assets/img/posters/MovieName.png" alt="Movie logo" />
+            <div class="dialog__controls">
+              <button class="dialog__button">
+                <img src="./assets/img/VectorPlay.png" alt="play icon" /> Riproduci
+              </button>
+              <button class="dialog__button button--round-dark">
+                <i class="far fa-plus"></i>
+              </button>
+              <button class="dialog__button button--round-dark">
+                <i class="far fa-thumbs-up"></i>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="dialog__text">// 2 diddv al 50%</div>
+
+        <!-- DIALOG TEXT -->
+        <div class="dialog__text">
+          <div class="dialog__text-left">
+            <span class="compatibility-rate">99% compatibile</span>
+            <span class="thin">2013</span>
+            <span class="maturity-number">VM14</span>
+            <span class="thin"> 5 stagioni</span>
+            <span class="quality-tag">HD</span>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam eum voluptates dolores ex dolorum accusamus
+              obcaecati provident sunt aliquid voluptate!
+            </p>
+          </div>
+          <div class="dialog__text-right">
+            <p class="right-section">
+              <span class="grey">Cast: </span><a href="#">Brad Pitt,</a> <a href="">Edward Norton,</a>
+              <a href="">Helena Bonham Carter,</a> <a href="">altro</a>
+            </p>
+            <p class="right-section">
+              <span class="grey">Generi: </span><a href="">Drammi a sfondo sociale,</a>
+              <a href="">Film tratti da libri,</a> <a href="">Drammi</a>
+            </p>
+            <p class="right-section"><span class="grey">Caratteristiche: </span><a href="">Cupo</a></p>
+          </div>
+        </div>
+
+        <!-- SIMILAR MOVIES SECTION -->
+        <h2 class="dialog__heading">Altri titoli simili</h2>
+        <div class="dialog__similar-movies" id="similar-movies"></div>
       </div>
     </div>
+
+    <script src="./assets/js/dialog.js"></script>
   </body>
 </html>
