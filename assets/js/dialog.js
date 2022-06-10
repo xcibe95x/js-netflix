@@ -1,8 +1,23 @@
 const MOVIE_ID = 338953;
 const BASE_URL = "https://api.themoviedb.org";
-const posterAPI = "https://image.tmdb.org/t/p/original";
 
 const container = document.getElementById("similar-movies");
+const btnHover = document.querySelector(".card-more")
+const dialog = document.querySelector(".opacity-overlay")
+
+btnHover.addEventListener("click", () => {
+
+    dialog.parentElement.style.overflow= "hidden";
+    dialog.style.display = "block";   
+
+});
+
+// document.body.addEventListener("click", (e) => {
+    
+//     if(!dialog.children[0].contains(e.target)){dialog.style.display= "none"}
+    
+// });
+
 
 window.addEventListener("load", (e) => {
   fetchSimilarMovies(MOVIE_ID);
