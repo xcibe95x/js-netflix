@@ -106,7 +106,4 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
         paintedMovies++;
         if (paintedMovies >= TOT_MOVIES) paintPlayer();
       });
-
-
-
 }
