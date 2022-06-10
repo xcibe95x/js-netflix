@@ -659,7 +659,9 @@ ul li:not(:first-of-type) a:hover {
   display: none; /* Safari and Chrome  */
 }
 
-.poster-container, .big-poster-container, .top-poster-container {
+.poster-container,
+.big-poster-container,
+.top-poster-container {
   display: flex;
   gap: 5px;
   max-width: 20%;
@@ -688,7 +690,7 @@ ul li:not(:first-of-type) a:hover {
   margin: auto;
   color: rgba(255, 255, 255, 0.829);
   text-align: center;
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
 
 .big-movie-poster img {
@@ -747,7 +749,7 @@ ul li:not(:first-of-type) a:hover {
   padding-top: 6px;
 }
 
-.circle::before {
+.genere > span:not(:last-child)::after {
   content: " ● ";
   color: #646464;
 }

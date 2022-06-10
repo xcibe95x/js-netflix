@@ -5,6 +5,7 @@ const latestAPI = baseURL + "/3/movie/upcoming?api_key=" + api_key + "&language=
 const topRatedAPI = baseURL + "/3/movie/top_rated?api_key=" + api_key + "&language=en-US&page=";
 const posterAPI = "https://image.tmdb.org/t/p/original";
 let paintedMovies = 0;
+const TOT_MOVIES = 140;
 
 // Get all query of the selected element
 function getContainer(string) {
@@ -98,6 +99,6 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
           .forEach((e) => container.appendChild(e));
       }
       paintedMovies++;
-      if (paintedMovies >= 140) paintPlayer();
+      if (paintedMovies >= TOT_MOVIES) paintPlayer();
     }); // close Fetch
 }
