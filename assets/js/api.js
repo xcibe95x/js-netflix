@@ -68,7 +68,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
         if (id != 831728) {
           container.innerHTML +=
             `
-            <div id=${id} class="movie-poster">` +
+            <div id="${id}" class="movie-poster">` +
             Rating(rating) +
             `
                 <img class="movie-logo" src="${logoImage}" alt="${altTitle}">
@@ -81,7 +81,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
       if (cardType == 1) {
         // Add Code Snippet
         container.innerHTML += `
-            <div id=${id} class="big-movie-poster">
+            <div id="${id}" class="big-movie-poster">
             <img src="${posterAPI + posterPath}" width="300px" alt="New Amsterdam" />
             </div>`;
       }
@@ -90,14 +90,16 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
       if (cardType == 2 && index <= 10) {
         // Add Code Snippet
         container.innerHTML += `
-            <div id=${id} order="${index}" class="movie-poster top10flex">
+            <div id="${id}" order="${index}" class="movie-poster top10flex">
                 <span class="numberstop">${index}</span>
                 <img src="${posterAPI + posterPath}" alt="movietopimg" />
             </div>`;
+            
         // Make top 10 ordered
         Array.from(container.children)
-          .sort((a, b) => a.order - b.order)
+          .sort((a, b) => a.getAttribute('order') - b.getAttribute('order'))
           .forEach((e) => container.appendChild(e));
+          console.log(Array.from(container.children))
       }
       paintedMovies++;
       if (paintedMovies >= TOT_MOVIES) paintPlayer();
