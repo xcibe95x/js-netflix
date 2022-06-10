@@ -64,7 +64,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
 
       // Regular Film Card
       if (cardType == 0) {
-        // Add Code Snippet - Skip broken Film
+        // Add Code Snippet
         if (id != 831728) {
           container.innerHTML +=
             `
@@ -79,7 +79,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
 
       // Big Film Card
       if (cardType == 1) {
-        // Add Code Snippet - Skip broken Film
+        // Add Code Snippet
         container.innerHTML += `
             <div id=${id} class="big-movie-poster">
             <img src="${posterAPI + posterPath}" width="300px" alt="New Amsterdam" />
@@ -88,12 +88,13 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
 
       // Big Film Card
       if (cardType == 2 && index <= 10) {
-        // Add Code Snippet - Skip broken Film
+        // Add Code Snippet
         container.innerHTML += `
             <div id=${id} order="${index}" class="movie-poster top10flex">
                 <span class="numberstop">${index}</span>
                 <img src="${posterAPI + posterPath}" alt="movietopimg" />
             </div>`;
+        // Make top 10 ordered
         Array.from(container.children)
           .sort((a, b) => a.order - b.order)
           .forEach((e) => container.appendChild(e));

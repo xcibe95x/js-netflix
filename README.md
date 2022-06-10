@@ -4,7 +4,7 @@
 JS Version with API of the precedent netflix clone repo
 
 # Repo Demo URL
-https://(Da Definire).xcibe95x.com/
+https://jfx.xcibe95x.com
 
 # Team
 
