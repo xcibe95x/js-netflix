@@ -99,8 +99,11 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
         Array.from(container.children)
           .sort((a, b) => a.getAttribute('order') - b.getAttribute('order'))
           .forEach((e) => container.appendChild(e));
-      }
-      paintedMovies++;
-      if (paintedMovies >= TOT_MOVIES) paintPlayer();
-    }); // close Fetch
+      
+        }
+      })
+      .finally(() => {
+        paintedMovies++;
+        if (paintedMovies >= TOT_MOVIES) paintPlayer();
+      });
 }
