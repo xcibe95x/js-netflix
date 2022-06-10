@@ -99,7 +99,6 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
         Array.from(container.children)
           .sort((a, b) => a.getAttribute('order') - b.getAttribute('order'))
           .forEach((e) => container.appendChild(e));
-          console.log(Array.from(container.children))
       }
       paintedMovies++;
       if (paintedMovies >= TOT_MOVIES) paintPlayer();
