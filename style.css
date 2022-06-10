@@ -661,15 +661,14 @@ ul li:not(:first-of-type) a:hover {
 .movie-section {
   display: flex;
   flex-direction: column;
-  padding: 0 60px 0 60px;
-  overflow-x: scroll;
-  /* overflow-y: hidden; */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+  margin-left: 60px;
+  position: relative;
 }
 
 /* Hide ScrollBar */
-.movie-section::-webkit-scrollbar {
+.poster-container::-webkit-scrollbar,
+.big-poster-container::-webkit-scrollbar,
+.top-poster-container::-webkit-scrollbar {
   display: none; /* Safari and Chrome  */
 }
 
@@ -678,11 +677,35 @@ ul li:not(:first-of-type) a:hover {
 .top-poster-container {
   display: flex;
   gap: 5px;
-  max-width: 20%;
+  position: relative;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 
 .movie-poster {
   position: relative;
+}
+
+.sliderButton {
+  position: absolute;
+  width: 150px;
+  height: 90%;
+  z-index: 7;
+  border: none;
+  outline: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttonDx {
+  right: 0;
+  background: linear-gradient(to left, #000, transparent);
+}
+
+.buttonSx {
+  left: 0;
+  background: linear-gradient(to right, #000, transparent);
 }
 
 .movie-poster > img {
