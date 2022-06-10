@@ -7,8 +7,3 @@ var sxArrow = createElement("i")
 dx.appendChild(dxArrow);
 sx.appendChild(sxArrow);
 
-for(let i = 0;i<=movieposters.length;i++)
-{ 
-  console.log(movieposters)
-}
-
