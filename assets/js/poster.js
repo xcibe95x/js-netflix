@@ -14,6 +14,9 @@ function paintPlayer() {
         // fetch movie data then fills the card
         let movieDataPromise = fetchMovieData(id);
         movieDataPromise.then((data) => {
+          //TODO:
+          // qui si deve rimepire sia media-player
+          // sia dialog
           // fill media player with data
           media_Player.children[0].src = posterAPI + data.backdrop_path;
           data.genres.forEach((genre) => {

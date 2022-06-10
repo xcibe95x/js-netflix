@@ -54,7 +54,6 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Netflix Sans";
 }
 
 html {
@@ -123,7 +122,6 @@ body {
   width: 100%;
   min-width: 216px;
   position: relative;
-
 }
 
 h1 {
@@ -160,7 +158,6 @@ hr {
 a {
   color: inherit;
   text-decoration: none;
-
 }
 
 span {
@@ -301,11 +298,7 @@ ul {
   align-items: center;
   padding-right: 16px;
   /* background: #18181899; */
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.89) 10%,
-    rgba(0, 0, 0, 0)
-  );
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.89) 10%, rgba(0, 0, 0, 0));
   position: fixed;
   z-index: 9; /* GOD Index */
 }
@@ -458,11 +451,7 @@ ul li:not(:first-of-type) a:hover {
 .movieposter {
   width: 100%;
   height: 906px;
-  background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    ),
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%),
     url(./assets/img/posters/MoviePoster.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -681,6 +670,7 @@ ul li:not(:first-of-type) a:hover {
   overflow-x: scroll;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
 }
 
 .movie-poster {
@@ -689,23 +679,31 @@ ul li:not(:first-of-type) a:hover {
 
 .sliderButton {
   position: absolute;
-  width: 150px;
+  cursor: pointer;
+  color: white;
+  width: 100px;
   height: 90%;
   z-index: 7;
   border: none;
   outline: none;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  align-items: center;
 }
 
 .buttonDx {
   right: 0;
   background: linear-gradient(to left, #000, transparent);
+  justify-content: end;
+  padding-right: 1.5em;
 }
 
 .buttonSx {
   left: 0;
   background: linear-gradient(to right, #000, transparent);
+  justify-content: start;
+  padding-left: 1.5em;
 }
 
 .movie-poster > img {
@@ -762,7 +760,7 @@ ul li:not(:first-of-type) a:hover {
 .media-player {
   display: none;
   position: absolute;
-  z-index: 6;
+  z-index: 8;
   height: 270px;
   width: 284px;
   background: var(--black);
@@ -968,8 +966,7 @@ ul li:not(:first-of-type) a:hover {
 .numberstop {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
-  text-shadow: -3px -3px 0 gray, 3px -3px 0 gray, -3px 3px 0 gray,
-    3px 3px 0 gray;
+  text-shadow: -3px -3px 0 gray, 3px -3px 0 gray, -3px 3px 0 gray, 3px 3px 0 gray;
   font-size: max(220px, 13vw);
   position: relative;
   line-height: 250px;
@@ -992,6 +989,8 @@ ul li:not(:first-of-type) a:hover {
 
 .dialog {
   position: relative;
+  margin-bottom: 2em;
+  bottom: 2em;
   top: 2em;
   left: 50%;
   transform: translateX(-50%);
@@ -1000,9 +999,8 @@ ul li:not(:first-of-type) a:hover {
   border-radius: 10px;
   overflow: hidden;
   background-color: var(--black);
-  color : #fff;
+  color: #fff;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
-
 }
 
 .dialog__img-shadow {
@@ -1328,11 +1326,7 @@ footer {
   }
 
   .navdesktop {
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.7) 10%,
-      rgba(0, 0, 0, 0)
-    );
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
     background-color: transparent;
     padding: 0;
   }
@@ -1411,11 +1405,7 @@ footer {
   }
 
   .navdesktop {
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.7) 10%,
-      rgba(0, 0, 0, 0)
-    );
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
     background-color: transparent;
     padding: 0;
   }
@@ -1566,8 +1556,7 @@ footer {
   }
 
   .numberstop {
-    text-shadow: -1px -1px 0 gray, 1px -1px 0 gray, -1px 1px 0 gray,
-      1px 1px 0 gray;
+    text-shadow: -1px -1px 0 gray, 1px -1px 0 gray, -1px 1px 0 gray, 1px 1px 0 gray;
     font-size: 36vw;
     position: relative;
     line-height: 250px;
