@@ -2,23 +2,26 @@ const MOVIE_ID = 338953;
 const BASE_URL = "https://api.themoviedb.org";
 
 const container = document.getElementById("similar-movies");
-const btnHover = document.querySelector(".card-more")
-const dialog = document.querySelector(".opacity-overlay")
+const btnHover = document.querySelector(".card-more");
+const dialog = document.querySelector(".opacity-overlay");
 
-btnHover.addEventListener("click", () => {
+btnHover.addEventListener("click", (outerEvent) => {
+  outerEvent.stopPropagation();
+  dialog.parentElement.style.overflow = "hidden";
+  dialog.style.display = "block";
 
-    dialog.parentElement.style.overflow= "hidden";
-    dialog.style.display = "block";   
-
+  document.body.addEventListener("click", closeDialogOnClickOut);
 });
 
-// document.body.addEventListener("click", (e) => {
-    
-//     if(!dialog.children[0].contains(e.target)){dialog.style.display= "none"}
-    
-// });
+function closeDialogOnClickOut(e) {
+  if (!dialog.children[0].contains(e.target)) {
+    dialog.style.display = "none";
+    dialog.parentElement.style.overflow = "unset";
+    document.body.removeEventListener("click", closeDialogOnClickOut);
+  }
+}
 
-
+//da modificare questo
 window.addEventListener("load", (e) => {
   fetchSimilarMovies(MOVIE_ID);
 });
