@@ -4,15 +4,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="text/javascript" src="./assets/js/env.js"></script>
-    <script type="text/javascript" src="./assets/js/currentUser.js"></script>
     <link rel="shortcut icon" href="./assets/img/profiles/ProfilePicture1.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/fontawesome/css/all.css" />
+    <script type="text/javascript" src="./assets/js/env.js"></script>
+    <script type="text/javascript" src="./assets/js/currentUser.js"></script>
 
     <title>Godflex</title>
   </head>
 
   <body>
+    <!-- dialog section -->
+    <div class="opacity-overlay">
+      <div class="dialog">
+        <!-- DIALOG IMAGE + OVERLAY  -->
+        <div class="dialog__img-shadow">
+          <img class="dialog__img" src="./assets/img/posters/MoviePoster.png" alt="img" />
+          <div class="dialog__overlay">
+            <img class="dialog__logo" src="./assets/img/posters/MovieName.png" alt="Movie logo" />
+            <div class="dialog__controls">
+              <button class="dialog__button">
+                <img src="./assets/img/VectorPlay.png" alt="play icon" /> Riproduci
+              </button>
+              <button class="dialog__button button--round-dark">
+                <i class="far fa-plus"></i>
+              </button>
+              <button class="dialog__button button--round-dark">
+                <i class="far fa-thumbs-up"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIALOG TEXT -->
+        <div class="dialog__text">
+          <div class="dialog__text-left">
+            <span class="compatibility-rate">99% compatibile</span>
+            <span class="thin">2013</span>
+            <span class="maturity-number">VM14</span>
+            <span class="thin"> 5 stagioni</span>
+            <span class="quality-tag">HD</span>
+            <p class="description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam eum voluptates dolores ex dolorum accusamus
+              obcaecati provident sunt aliquid voluptate!
+            </p>
+          </div>
+          <div class="dialog__text-right">
+            <p class="right-section"></p>
+            <p class="right-section"></p>
+          </div>
+        </div>
+
+        <!-- SIMILAR MOVIES SECTION -->
+        <h3 class="dialog__heading">Similar movies</h3>
+        <div class="dialog__similar-movies" id="similar-movies"></div>
+      </div>
+    </div>
+    <!-- dialog section end -->
+
     <!-- Navbar Section -->
     <nav class="navdesktop">
       <div class="logo">
@@ -135,177 +184,94 @@
         </div>
         <div class="movieposter__riproduci">
           <a href="#" class="btn-riproduci"
-            ><div class="play"><img src="./assets/img/posters/VectorPlay.svg" alt="Play" /></div>
+            ><div class="play">
+              <img src="./assets/img/posters/VectorPlay.svg" alt="Play" />
+            </div>
             Riproduci</a
           >
           <a href="#" class="btn-riproduci btn-info"
-            ><div class="info"><img src="./assets/img/posters/VectorInfo.png" alt="info" /></div>
+            ><div class="info">
+              <img src="./assets/img/posters/VectorInfo.png" alt="info" />
+            </div>
             Altre info</a
           >
         </div>
       </div>
       <div class="popular-container">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         <h3 class="section-title">I più popolari su Godflex </h3>
-=======
         <h3 class="section-title">Most popular on Godflex</h3>
->>>>>>> 68ca29064f511dc59ce3df187b97ee50a0c5aa65
-=======
         <h3 class="section-title">Most popular on Godflex</h3>
->>>>>>> 68ca29064f511dc59ce3df187b97ee50a0c5aa65
-=======
         <h3 class="section-title">I più popolari su Godflex</h3>
->>>>>>> parent of e5b23c7 (fetching?)
-=======
         <h3 class="section-title">I più popolari su Godflex</h3>
->>>>>>> parent of 68ca290 (Merge branch 'xcibe95x:main' into main)
-=======
         <h3 class="section-title">I più popolari su Godflex</h3>
->>>>>>> parent of 68ca290 (Merge branch 'xcibe95x:main' into main)
         <span class="see-all-notext"></span>
         <span class="see-all"></span>
         <div class="movie-section">
           <div class="poster-container">
-  
-   
           </div>
+
+        <h3 class="section-title">Most popular on Godflex</h3>
+        <span class="see-all-notext"></span>
+        <span class="see-all"></span>
+        <div class="movie-section">
+          <div class="poster-container"></div>
         </div>
       </div>
-
     </div>
-    <!-- card  -->
+
+    <!-- Card  -->
     <div class="media-player">
-        <img class="player-image" src="./assets/img/posters/steinsgate.webp" />
-        <div class="player-container">
-          <span class="card-play"></span>
-          <span class="card-add"></span>
-          <span class="card-like"></span>
-          <span class="card-more"></span>
-        </div>
-        <div class="player-container">
-          <span class="compatible">98% compatibile<span class="vm14"></span><span>8 Stagioni</span></span>
-        </div>
-        <div class="genere">
-          <span class="compatible">Drama<span class="circle"></span>SciFi<span class="circle"></span>Anime</span>
-        </div>
+      <img class="player-image" src="./assets/img/posters/steinsgate.webp" />
+      <div class="player-container">
+        <span class="card-play"></span>
+        <span class="card-add"></span>
+        <span class="card-like"></span>
+        <span class="card-more"></span>
+      </div>
+      <div class="player-container">
+        <span class="compatible">98% compatibile<span class="vm14"></span><span></span></span>
+      </div>
+      <div class="genere compatible" style="color: white"></div>
     </div>
 
-        <!-- Popular Section -->
+    <div class="god-container">
+      <!-- Titoli Del Momento Section -->
+      <h3 class="section-title">Titles of the moment</h3>
+      <span class="see-all-notext"></span>
+      <span class="see-all"></span>
+      <div class="movie-section">
+        <div class="poster-container"></div>
+      </div>
+    </div>
 
-        <div class="god-container">
-          <!-- Titoli Del Momento Section -->
-          <h3 class="section-title">I titoli del momento</h3>
-          <span class="see-all-notext"></span>
-          <span class="see-all"></span>
-          <div class="movie-section">
-            <div class="poster-container">
+    <!-- Continua a guardare -->
+    <div class="god-container">
+      <h3 class="section-title"><span id="god-name-cards">Zeus</span>, Keep watching:</h3>
+      <span class="see-all-notext"></span>
+      <span class="see-all"></span>
+      <div class="movie-section">
+        <div class="poster-container"></div>
+      </div>
+    </div>
 
-            </div>
-          </div>
-        </div>
-    
-        <!-- Continua a guardare -->
-        <div class="god-container">
-          <h3 class="section-title"><span id="god-name-cards">Zeus</span>, Continua a guardare:</h3>
-          <span class="see-all-notext"></span>
-          <span class="see-all"></span>
-          <div class="movie-section">
-            <div class="poster-container">
-              
-            </div>
-          </div>
-        </div>
-    
-        <!-- Long Images Section -->
-        <div class="big-container">
-          <h3 class="section-title">Nuove uscite</h3>
-          <span class="see-all-notext"></span>
-          <span class="see-all"></span>
-    
-          <div class="movie-section">
-            <div class="e-poster-container">
-              <div class="big-movie-poster">
-                <img src="./assets/img/posters/MoviePoster_16.png" alt="New Amsterdam" />
-              </div>
-              <div class="big-movie-poster">
-                <img src="./assets/img/posters/MoviePoster_17.png" alt="New Amsterdam" />
-              </div>
-              <div class="big-movie-poster">
-                <img src="./assets/img/posters/MoviePoster_18.png" alt="New Amsterdam" />
-              </div>
-              <div class="big-movie-poster">
-                <img src="./assets/img/posters/MoviePoster_19.png" alt="New Amsterdam" />
-              </div>
-              <div class="big-movie-poster">
-                <img src="./assets/img/posters/MoviePoster_20.png" alt="New Amsterdam" />
-              </div>
-              <div class="big-movie-poster">
-                <img src="./assets/img/posters/MoviePoster_19.png" alt="New Amsterdam" />
-              </div>
-              <div class="big-movie-poster">
-                <img src="./assets/img/posters/MoviePoster_18.png" alt="New Amsterdam" />
-              </div>
-              <div class="big-movie-poster">
-                <img src="./assets/img/posters/MoviePoster_16.png" alt="New Amsterdam" />
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <!-- Top 10 Section -->
-        <div class="god-container top10fix">
-          <h3 class="section-title">Top 10 delle serie TV in Italia oggi</h3>
-          <span class="see-all-notext"></span>
-          <span class="see-all"></span>
-          <div class="movie-section">
-            <div class="e-poster-container">
-              <div class="movie-poster top10flex">
-                <span class="numberstop">1</span>
-                <img src="assets/img/posters/MoviePoster_21.png" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">2</span>
-                <img src="assets/img/posters/MoviePoster_22.png" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">3</span>
-                <img src="assets/img/posters/MoviePoster_23.png" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">4</span>
-                <img src="assets/img/posters/MoviePoster_24.png" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">5</span>
-                <img src="assets/img/posters/MoviePoster_25.png" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">6</span>
-                <img src="assets/img/posters/lovedeath_longimage.webp" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">7</span>
-                <img src="assets/img/posters/therock_longimage.webp" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">8</span>
-                <img src="assets/img/posters/blindspot_longimage.webp" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">9</span>
-                <img src="assets/img/posters/cheerleader_longimage.webp" alt="movietopimg" />
-              </div>
-              <div class="movie-poster top10flex">
-                <span class="numberstop">10</span>
-                <img src="assets/img/posters/bettercallsaul_longimage.webp" alt="movietopimg" />
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Long Images Section -->
+    <div class="big-container">
+      <h3 class="section-title">Upcoming</h3>
+      <span class="see-all-notext"></span>
+      <span class="see-all"></span>
+
+      <div class="movie-section">
+        <div class="big-poster-container"></div>
+      </div>
+    </div>
+
+    <!-- Top 10 Section -->
+    <div class="god-container top10fix">
+      <h3 class="section-title">Top Rated</h3>
+      <span class="see-all-notext"></span>
+      <span class="see-all"></span>
+      <div class="movie-section">
+        <div class="top-poster-container"></div>
       </div>
     </div>
 
@@ -315,24 +281,19 @@
       <span class="see-all-notext"></span>
       <span class="see-all"></span>
       <div class="movie-section">
-        <div class="poster-container">
-          
-        </div>
+        <div class="poster-container"></div>
       </div>
     </div>
 
-    <!-- Anime Section -->
+    <!-- Last year Section -->
     <div class="god-container">
       <h3 class="section-title">Usciti nell'ultimo anno</h3>
       <span class="see-all-notext"></span>
       <span class="see-all"></span>
       <div class="movie-section">
-        <div class="poster-container">
-          
-        </div>
+        <div class="poster-container"></div>
       </div>
-      </div>
-
+    </div>
 
     <!-- Footer Section -->
 
@@ -378,5 +339,7 @@
 
     <script type="text/javascript" src="./assets/js/api.js"></script>
     <script src="./assets/js/poster.js"></script>
+    <script src="./assets/js/slidersButton.js"></script>
+    <script src="./assets/js/dialog.js"></script>
   </body>
 </html>
