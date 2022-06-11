@@ -683,14 +683,32 @@ ul li:not(:first-of-type) a:hover {
   cursor: pointer;
   color: white;
   width: 100px;
+  max-height: 160px;
   height: 90%;
   z-index: 7;
+  border-radius: 4px;
   border: none;
   outline: none;
-  top: 50%;
+  top: 49%;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
+}
+
+.big-poster-container ~ .sliderButton {
+  max-height: 575px;
+  height: 95.2%;
+  top: 49.5%;
+  border-radius: 1px;
+  transform: translateY(-50%);
+}
+
+.top-poster-container ~ .sliderButton {
+  max-height: 220px;
+  height: 90%;
+  top: 49.5%;
+  border-radius: 1px;
+  transform: translateY(-53%);
 }
 
 .buttonDx {
