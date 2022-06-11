@@ -1288,6 +1288,7 @@ footer {
 
 .footer-links a:hover {
   text-decoration: underline;
+  color: var(--clearwhite) !important;
 }
 
 .service-code {
