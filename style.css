@@ -1132,6 +1132,14 @@ ul li:not(:first-of-type) a:hover {
   text-decoration: underline;
 }
 
+.right-section:first-child {
+  margin-top: 3em;
+}
+
+.right-section {
+  margin-top: 1em;
+}
+
 .grey {
   color: var(--gray);
 }

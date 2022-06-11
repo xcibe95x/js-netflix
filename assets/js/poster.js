@@ -1,44 +1,38 @@
-function paintPlayer() {
-  let movie_Poster = document.querySelectorAll(".movie-poster");
-  let media_Player = document.querySelector(".media-player");
-  let runtime = document.querySelector(".compatible > span:last-child");
+const mediaPlayer = document.querySelector(".media-player");
+const dialog = document.querySelectorAll(".dialog");
+let runtime = document.querySelector(".compatible > span:last-child");
 
+function paintPlayer() {
   let apiTimer;
   let mediaPlayerShowTimer;
-
-  for (let i = 0; i < movie_Poster.length; i++) {
-    movie_Poster[i].addEventListener("mouseenter", function position(e) {
+  let moviePoster = document.querySelectorAll(".movie-poster");
+  for (let i = 0; i < moviePoster.length; i++) {
+    moviePoster[i].addEventListener("mouseenter", (e) => {
       const id = e.target.id;
-      // wait 1 sec before calling api
+
+      // fetch movie data after 700ms
       apiTimer = setTimeout(() => {
         // fetch movie data then fills the card
-        let movieDataPromise = fetchMovieData(id);
-        movieDataPromise.then((data) => {
-          //TODO:
-          // qui si deve rimepire sia media-player
-          // sia dialog
+        fetchMovieData(id).then((data) => {
           // fill media player with data
-          media_Player.children[0].src = posterAPI + data.backdrop_path;
-          data.genres.forEach((genre) => {
-            media_Player.children[3].innerHTML += `
-            <span>${genre.name}</span>
-            `;
-          });
-          runtime.innerText = formatRuntime(data.runtime);
+          fillMediaPlayer(data);
+          // fill dialog with data
+          fillDialog(data);
         });
       }, 700);
-      //wait 2 sec before showing
+
+      // show media player after 1s
       mediaPlayerShowTimer = setTimeout(() => {
-        let rect = movie_Poster[i].getBoundingClientRect();
-        media_Player.style.top = cumulativeOffset(movie_Poster[i]) + "px";
-        media_Player.style.left = rect.x + "px";
-        media_Player.style.display = "block";
+        let rect = moviePoster[i].getBoundingClientRect();
+        mediaPlayer.style.top = cumulativeOffset(moviePoster[i]) + "px";
+        mediaPlayer.style.left = rect.x + "px";
+        mediaPlayer.style.display = "block";
       }, 1000);
     });
 
     // if the card has not appeared yet and the user mouseleaves the movieposter,
     // then the intervals must be cleared
-    movie_Poster[i].addEventListener("mouseleave", () => {
+    moviePoster[i].addEventListener("mouseleave", () => {
       // check if timer is set, then clears it
       if (apiTimer != undefined) {
         clearTimeout(apiTimer);
@@ -47,19 +41,67 @@ function paintPlayer() {
     });
   }
 
-  media_Player.addEventListener("mouseleave", (e) => {
+  mediaPlayer.addEventListener("mouseleave", (e) => {
     // hide card
-    media_Player.style.display = "none";
-    media_Player.children[3].innerHTML = "";
+    mediaPlayer.style.display = "none";
+    mediaPlayer.children[3].innerHTML = "";
     runtime.innerText = "";
   });
 }
 
-async function fetchMovieData(id) {
-  let result = await fetch(baseURL + "/3/movie/" + id + "?api_key=" + api_key);
-  return result.json();
+/**
+ * Fills media player with data coming from {@linkcode fetchMovieData} previous call.
+ * @param {object} data
+ */
+function fillMediaPlayer(data) {
+  mediaPlayer.children[0].src = posterAPI + data.backdrop_path;
+  data.genres.forEach((genre) => {
+    mediaPlayer.children[3].innerHTML += `
+            <span>${genre.name}</span>
+            `;
+  });
+  runtime.innerText = formatRuntime(data.runtime);
 }
 
+/**
+ * Fills dialog with data from {@linkcode data} object.
+ * @param {object} data Movie data object
+ */
+async function fillDialog(data) {
+  let logo = await fetchMovieLogo(data.id);
+  // add img
+  document.querySelector(".dialog__img").src = posterAPI + data.backdrop_path;
+  // add logo
+  document.querySelector(".dialog__logo").src = logo;
+  // add runtime
+  document.querySelector(".maturity-number").nextElementSibling.innerText = formatRuntime(data.runtime);
+  document.querySelector(".description").innerText = data.overview;
+  // cast
+  let castContainer = document.querySelector(".right-section:first-child");
+  castContainer.innerHTML = `<span class="grey">Cast: </span>`;
+  let cast = await fetchCast(data.id);
+  cast.cast.slice(0, 5).forEach((actor, i) => {
+    castContainer.innerHTML += `<a href="">${actor.name}${i == 4 ? "" : ", "}</a>`;
+  });
+  // genres
+  let genresContainer = document.querySelector(".right-section:last-child");
+  genresContainer.innerHTML = "<span class='grey'>Generi: </span>";
+  data.genres.forEach((genre, i) => {
+    genresContainer.innerHTML += `<a href="">${genre.name}${i == data.genres.length - 1 ? "" : ", "}</a>`;
+  });
+
+  // similar movies
+  const similarContainer = document.getElementById("similar-movies");
+  similarContainer.innerHTML = "";
+  let films = await fetchSimilarMovies(data.id);
+  films.results.forEach((film) => appendSimilarFilm(similarContainer, film));
+}
+
+/**
+ * Calculate and returns the cumulative `offsetTop` of the provided `element` from the top of the document.
+ * @param {HTMLElement} element
+ * @returns Total `offsteTop` of the element from the top of the document.
+ */
 function cumulativeOffset(element) {
   var top = 0;
   do {
