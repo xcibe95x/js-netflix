@@ -533,16 +533,13 @@ ul li:not(:first-of-type) a:hover {
   height: 62px;
 }
 
-.play {
-  width: 32px;
-  height: 32px;
-  padding: 5px;
+.play, .info {
+  display: flex;
   margin-right: 12px;
 }
 
 .btn-riproduci {
   display: flex;
-  width: 194px;
   height: 50px;
   background: var(--white);
   border-radius: 4px;
@@ -568,13 +565,6 @@ ul li:not(:first-of-type) a:hover {
 
 .btn-info:hover {
   background: rgba(255, 255, 255, 0.25);
-}
-
-.info {
-  width: 32px;
-  height: 32px;
-  padding: 3px;
-  margin-right: 16px;
 }
 
 .popular-container {
