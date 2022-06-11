@@ -1,10 +1,11 @@
+
+# Repo Demo URL
+https://jfx.xcibe95x.com
+
 # Netflix Clone aka Godflex
 ## Accellerator Program Team Project.
 
 JS Version with API of the precedent netflix clone repo
-
-# Repo Demo URL
-https://jfx.xcibe95x.com
 
 # Team
 
