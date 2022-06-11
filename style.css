@@ -776,7 +776,7 @@ ul li:not(:first-of-type) a:hover {
   transform: scale(1.12);
   transition: all .3s ease-in;
   opacity: 0;
-  padding-bottom: 6px;
+  padding-bottom: 8px;
 }
 
 .movie-poster:hover ~ .media-player,
