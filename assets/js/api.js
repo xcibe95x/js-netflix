@@ -18,11 +18,6 @@ callAPI(1, getContainer(".big-poster-container")[0], latestAPI, 1);
 // Populate TOP 10
 callAPI(1, getContainer(".top-poster-container")[0], topRatedAPI, 2);
 
-// Get all query of the selected element
-function getContainer(string) {
-  return document.querySelectorAll(string);
-}
-
 // Fetch API data for and print the card
 function callAPI(page, container, api, cardType) {
   fetch(api + page)
@@ -90,6 +85,15 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
       paintedMovies++;
       if (paintedMovies >= TOT_MOVIES) paintPlayer();
     });
+}
+
+/**
+ * Fetches html class
+ * @param {string} query
+ * @returns Selected html query container
+ */
+function getContainer(string) {
+  return document.querySelectorAll(string);
 }
 
 /**
