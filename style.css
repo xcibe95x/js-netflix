@@ -768,8 +768,16 @@ ul li:not(:first-of-type) a:hover {
   border-radius: 8px;
   margin-top: 20px;
   margin-bottom: 20px;
-  transform: scale(1.2);
   box-shadow: 2px 1px 3px 0.2px rgba(0, 0, 0, 0.6);
+  transform: scale(1.12);
+  transition: all .3s ease-in;
+  opacity: 0;
+}
+
+.movie-poster:hover ~ .media-player,
+.media-player:hover {
+  transform: scale(1.26);
+  opacity: 1;
 }
 
 .player-container {

@@ -10,7 +10,7 @@ function paintPlayer() {
     moviePoster[i].addEventListener("mouseenter", (e) => {
       const id = e.target.id;
 
-      // fetch movie data after 700ms
+      // fetch movie data after 500ms
       apiTimer = setTimeout(() => {
         // fetch movie data then fills the card
         fetchMovieData(id).then((data) => {
@@ -19,15 +19,15 @@ function paintPlayer() {
           // fill dialog with data
           fillDialog(data);
         });
-      }, 700);
+      }, 500);
 
-      // show media player after 1s
+      // show media player after 650ms
       mediaPlayerShowTimer = setTimeout(() => {
         let rect = moviePoster[i].getBoundingClientRect();
         mediaPlayer.style.top = cumulativeOffset(moviePoster[i]) + "px";
         mediaPlayer.style.left = rect.x + "px";
         mediaPlayer.style.display = "block";
-      }, 1000);
+      }, 650);
     });
 
     // if the card has not appeared yet and the user mouseleaves the movieposter,
