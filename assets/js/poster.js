@@ -55,46 +55,13 @@ function paintPlayer() {
  */
 function fillMediaPlayer(data) {
   mediaPlayer.children[0].src = posterAPI + data.backdrop_path;
+  mediaPlayer.children[3].innerHTML = "";
   data.genres.forEach((genre) => {
     mediaPlayer.children[3].innerHTML += `
             <span>${genre.name}</span>
             `;
   });
   runtime.innerText = formatRuntime(data.runtime);
-}
-
-/**
- * Fills dialog with data from {@linkcode data} object.
- * @param {object} data Movie data object
- */
-async function fillDialog(data) {
-  let logo = await fetchMovieLogo(data.id);
-  // add img
-  document.querySelector(".dialog__img").src = posterAPI + data.backdrop_path;
-  // add logo
-  document.querySelector(".dialog__logo").src = logo;
-  // add runtime
-  document.querySelector(".maturity-number").nextElementSibling.innerText = formatRuntime(data.runtime);
-  document.querySelector(".description").innerText = data.overview;
-  // cast
-  let castContainer = document.querySelector(".right-section:first-child");
-  castContainer.innerHTML = `<span class="grey">Cast: </span>`;
-  let cast = await fetchCast(data.id);
-  cast.cast.slice(0, 5).forEach((actor, i) => {
-    castContainer.innerHTML += `<a href="">${actor.name}${i == 4 ? "" : ", "}</a>`;
-  });
-  // genres
-  let genresContainer = document.querySelector(".right-section:last-child");
-  genresContainer.innerHTML = "<span class='grey'>Generi: </span>";
-  data.genres.forEach((genre, i) => {
-    genresContainer.innerHTML += `<a href="">${genre.name}${i == data.genres.length - 1 ? "" : ", "}</a>`;
-  });
-
-  // similar movies
-  const similarContainer = document.getElementById("similar-movies");
-  similarContainer.innerHTML = "";
-  let films = await fetchSimilarMovies(data.id);
-  films.results.forEach((film) => appendSimilarFilm(similarContainer, film));
 }
 
 /**
