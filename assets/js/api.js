@@ -4,19 +4,34 @@ const popularAPI = baseURL + "/3/movie/popular?api_key=" + api_key + "&page=";
 const latestAPI = baseURL + "/3/movie/upcoming?api_key=" + api_key + "&language=en-US&page=";
 const topRatedAPI = baseURL + "/3/movie/top_rated?api_key=" + api_key + "&language=en-US&page=";
 const posterAPI = "https://image.tmdb.org/t/p/original";
-let paintedMovies = 0;
 const TOT_MOVIES = 140;
+let paintedMovies = 0;
+
+const posterContainer = document.querySelectorAll(".poster-container");
+const bigContainer = document.querySelector(".big-poster-container");
+const top10Container = document.querySelector(".top-poster-container");
 
 // Call API for the number of Containers available
-for (i = 0; i < getContainer(".poster-container").length; i++) {
-  callAPI(i + 1, getContainer(".poster-container")[i], popularAPI);
+for (i = 0; i < posterContainer.length; i++) {
+  // creo 6 card grigie e le appendo a poster container
+  for (j = 0; j < 7; j++) {
+    posterContainer[i].innerHTML += `<div class='card__placeholder' id='placeholder-${i * 7 + j}'></div>`;
+  }
+  callAPI(i + 1, posterContainer[i], popularAPI);
 }
 
+// for (j = 0; j < 7; j++) {
+//   bigContainer.innerHTML += "<div class='card__placeholder'></div>";
+//   top10Container.innerHTML += "<div class='card__placeholder'></div>";
+// }
+
+const placeholders = document.querySelectorAll(".card__placeholder");
+
 // Populate Big Movie Posters
-callAPI(1, getContainer(".big-poster-container")[0], latestAPI, 1);
+callAPI(1, bigContainer, latestAPI, 1);
 
 // Populate TOP 10
-callAPI(1, getContainer(".top-poster-container")[0], topRatedAPI, 2);
+callAPI(1, top10Container, topRatedAPI, 2);
 
 // Fetch API data for and print the card
 function callAPI(page, container, api, cardType) {
@@ -24,7 +39,7 @@ function callAPI(page, container, api, cardType) {
     .then((result) => result.json())
     .then((film) => {
       film.results.forEach((e, i) => {
-        createCard(container, e.backdrop_path, e.title, e.id, e.poster_path, cardType, i + 1, e.vote_average);
+        createCard(container, e.backdrop_path, e.title, e.id, e.poster_path, cardType, i + 1, e.vote_average, page - 1);
       });
     });
 }
@@ -32,29 +47,42 @@ function callAPI(page, container, api, cardType) {
 // Check if the Movie is High Rated
 function Rating(factor) {
   if (factor >= 7.8) {
-    return `<span class="top-ten"></span>`;
+    return `<span class="top-ten-label"></span>`;
   } else {
     return ``;
   }
 }
 
 // Create Film Cards
-function createCard(container, filmPoster, title, id, posterPath, cardType = 0, index, rating) {
+function createCard(container, filmPoster, title, id, posterPath, cardType = 0, index, rating, rowIndex) {
   fetchMovieLogo(id)
     .then((logo) => {
+      // get row placeholders
+
       // Regular Film Card
-      if (cardType == 0) {
-        // Add Code Snippet
-        if (id != 831728) {
-          container.innerHTML +=
-            `
-          <div id="${id}" class="movie-poster">` +
-            Rating(rating) +
-            `
-              <img class="movie-logo" src="${logo}">
-              <img src="${posterAPI + filmPoster}" alt="${title}">
-          </div>`;
-        }
+      if (cardType == 0 && filmPoster != null) {
+        let moviePoster = document.createElement("div");
+        moviePoster.id = id;
+        moviePoster.className = "movie-poster";
+
+        let img = new Image();
+        if (index < 8)
+          img.addEventListener("load", () => {
+            document.getElementById("placeholder-" + (rowIndex * 7 + (index - 1))).remove();
+          });
+        img.src = posterAPI + filmPoster;
+        img.alt = title;
+
+        let logoElement = new Image();
+        logoElement.src = logo;
+        logoElement.className = "movie-logo";
+
+        moviePoster.append(logoElement, img);
+        moviePoster.innerHTML += Rating(rating);
+        container.append(moviePoster);
+      }
+      if (filmPoster == null && index < 8) {
+        document.getElementById("placeholder-" + (rowIndex * 7 + (index - 1))).remove();
       }
 
       // Big Film Card
@@ -62,7 +90,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
         // Add Code Snippet
         container.innerHTML += `
           <div id="${id}" class="big-movie-poster">
-          <img src="${posterAPI + posterPath}" width="300px" alt="New Amsterdam" />
+          <img src="${posterAPI + posterPath}" width="300px" />
           </div>`;
       }
 
@@ -88,15 +116,6 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
 }
 
 /**
- * Fetches html class
- * @param {string} query
- * @returns Selected html query container
- */
-function getContainer(string) {
-  return document.querySelectorAll(string);
-}
-
-/**
  * Fetches logo for movie with id {@linkcode movieId} if exists
  * @param {number | string} movieId
  * @returns A `Promise<string>` with the logo path if it exists, empty string otherwise.
@@ -106,6 +125,7 @@ async function fetchMovieLogo(movieId) {
   let imgData = await response.json();
   let path = "";
   if (imgData.logos != undefined && imgData.logos.length > 0) path = posterAPI + imgData.logos[0].file_path;
+
   return path;
 }
 

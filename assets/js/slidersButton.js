@@ -16,10 +16,31 @@ for (let i = 0; i < movieSections.length; i++) {
   dx.appendChild(dxArrow);
   sx.appendChild(sxArrow);
   movieSections[i].append(dx, sx);
-  dx.addEventListener("click", () => {
-    movieSections[i].firstElementChild.scrollLeft += 400;
+
+  //sx button starts with display none
+  sx.style.display = "none";
+
+  dx.addEventListener("click", (e) => {
+    let scrollElement = movieSections[i].firstElementChild;
+    scrollElement.scrollLeft += 265;
   });
-  sx.addEventListener("click", () => {
-    movieSections[i].firstElementChild.scrollLeft -= 400;
+
+  sx.addEventListener("click", (e) => {
+    let scrollElement = movieSections[i].firstElementChild;
+    scrollElement.scrollLeft -= 265;
+  });
+
+  movieSections[i].firstElementChild.addEventListener("scroll", (e) => {
+    // if (!wait) {
+    const leftButton = e.target.nextElementSibling.nextElementSibling;
+    const rightButton = e.target.nextElementSibling;
+    // tutto a sx
+    if (e.target.scrollLeft === 0) leftButton.style.display = "none";
+    //tutto a dx
+    else if (e.target.scrollLeft + e.target.offsetWidth === e.target.scrollWidth) rightButton.style.display = "none";
+    else {
+      rightButton.style.display = "flex";
+      leftButton.style.display = "flex";
+    }
   });
 }
