@@ -19,7 +19,7 @@ function paintPlayer() {
           // fill dialog with data
           fillDialog(data);
         });
-      }, 500);
+      }, 700);
 
       // show media player after 650ms
       mediaPlayerShowTimer = setTimeout(() => {
@@ -27,7 +27,7 @@ function paintPlayer() {
         mediaPlayer.style.top = cumulativeOffset(moviePoster[i]) + "px";
         mediaPlayer.style.left = rect.x + "px";
         mediaPlayer.style.display = "block";
-      }, 650);
+      }, 1000);
     });
 
     // if the card has not appeared yet and the user mouseleaves the movieposter,
