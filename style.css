@@ -843,7 +843,38 @@ ul li:not(:first-of-type) a:hover {
 .card-more:hover {
   border: 2px solid var(--white);
   cursor: pointer;
+  position: relative;
 }
+
+.card-more:hover:before {
+  content: "More info";
+  width: 115px;
+  background-color: #E6E6E6;
+  padding: 10px;
+  text-align: center;
+  font-weight: 900;
+  color: #000000;
+  position: absolute;
+  border-radius: 5px;
+  top:-50px ;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-more:hover::after{
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #E6E6E6;
+  border-bottom: 10px solid transparent;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -12px;
+ }
+
 
 .card-play:hover {
   background: var(--smokeWhite);
