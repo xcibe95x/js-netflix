@@ -702,6 +702,7 @@ ul li:not(:first-of-type) a:hover {
   max-height: 160px;
   width: max(260px, 16vw);
   border-radius: 4px;
+  pointer-events: none;
 }
 
 .card__placeholder {
@@ -1011,7 +1012,7 @@ ul li:not(:first-of-type) a:hover {
   top: 2em;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 98%;
   max-width: 850px;
   border-radius: 10px;
   overflow: hidden;
@@ -1185,6 +1186,7 @@ ul li:not(:first-of-type) a:hover {
 .dialog__similar-movies {
   padding: 4%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.5em;
 }
@@ -1606,7 +1608,36 @@ footer {
     margin-top: -10px;
   }
 
-  /* Top 10 bordello */
+  /* DIALOG */
 
-  /* footer */
+  .dialog {
+    font-size: 12px;
+  }
+
+  .dialog__text-left {
+    flex-basis: 250%;
+  }
+
+  .dialog__text-right {
+    font-size: 12px;
+  }
+
+  .card {
+    flex-basis: 45%;
+  }
+
+  .thin,
+  .quality-tag {
+    display: inline-block;
+    margin-top: 1em;
+  }
+
+  .description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
 }
