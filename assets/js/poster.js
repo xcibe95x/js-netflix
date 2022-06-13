@@ -8,7 +8,7 @@ function paintPlayer() {
   let moviePoster = document.querySelectorAll(".movie-poster");
   for (let i = 0; i < moviePoster.length; i++) {
     moviePoster[i].addEventListener("mouseenter", (e) => {
-      const id = e.target.id;
+      const id = e.target.getAttribute('movie');
 
       // fetch movie data after 500ms
       apiTimer = setTimeout(() => {
@@ -19,7 +19,7 @@ function paintPlayer() {
           // fill dialog with data
           fillDialog(data);
         });
-      }, 500);
+      }, 700);
 
       // show media player after 650ms
       mediaPlayerShowTimer = setTimeout(() => {
@@ -27,7 +27,7 @@ function paintPlayer() {
         mediaPlayer.style.top = cumulativeOffset(moviePoster[i]) + "px";
         mediaPlayer.style.left = rect.x + "px";
         mediaPlayer.style.display = "block";
-      }, 650);
+      }, 1000);
     });
 
     // if the card has not appeared yet and the user mouseleaves the movieposter,

@@ -20,12 +20,10 @@ for (i = 0; i < posterContainer.length; i++) {
   callAPI(i + 1, posterContainer[i], popularAPI);
 }
 
-// for (j = 0; j < 7; j++) {
-//   bigContainer.innerHTML += "<div class='card__placeholder'></div>";
-//   top10Container.innerHTML += "<div class='card__placeholder'></div>";
-// }
-
-const placeholders = document.querySelectorAll(".card__placeholder");
+for (j = 0; j < 7; j++) {
+  bigContainer.innerHTML += `<div class='card__placeholder' id='placeholder-big-${j}'></div>`;
+  top10Container.innerHTML += `<div class='card__placeholder' id='placeholder-top10-${j}'></div>`;
+}
 
 // Populate Big Movie Posters
 callAPI(1, bigContainer, latestAPI, 1);
@@ -62,7 +60,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
       // Regular Film Card
       if (cardType == 0 && filmPoster != null) {
         let moviePoster = document.createElement("div");
-        moviePoster.id = id;
+        moviePoster.setAttribute("movie", id);
         moviePoster.className = "movie-poster";
 
         let img = new Image();
@@ -80,28 +78,49 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
         moviePoster.append(logoElement, img);
         moviePoster.innerHTML += Rating(rating);
         container.append(moviePoster);
-      }
-      if (filmPoster == null && index < 8) {
+      } else if (filmPoster == null && index < 8) {
+        // remove faulty cards
         document.getElementById("placeholder-" + (rowIndex * 7 + (index - 1))).remove();
       }
 
       // Big Film Card
       if (cardType == 1) {
-        // Add Code Snippet
-        container.innerHTML += `
-          <div id="${id}" class="big-movie-poster">
-          <img src="${posterAPI + posterPath}" width="300px" />
-          </div>`;
+        let moviePoster = document.createElement("div");
+        moviePoster.setAttribute("movie", id);
+        moviePoster.className = "big-movie-poster";
+
+        let img = new Image();
+        if (index < 8)
+          img.addEventListener("load", () => {
+            document.getElementById("placeholder-big-" + (index - 1)).remove();
+          });
+        img.src = posterAPI + posterPath;
+        // img.style = "width: 300px";
+
+        moviePoster.append(img);
+        container.append(moviePoster);
       }
 
-      // Big Film Card
+      // Top10 film card
       if (cardType == 2 && index <= 10) {
-        // Add Code Snippet
-        container.innerHTML += `
-          <div id="${id}" order="${index}" class="movie-poster top10flex">
-              <span class="numberstop">${index}</span>
-              <img src="${posterAPI + posterPath}" alt="movietopimg" />
-          </div>`;
+        let moviePoster = document.createElement("div");
+        moviePoster.setAttribute("movie", id);
+        moviePoster.setAttribute("order", index);
+        moviePoster.className = "movie-poster top10flex";
+
+        let numberstop = document.createElement("span");
+        numberstop.className = "numberstop";
+        numberstop.innerText = index;
+
+        let img = new Image();
+        if (index < 8)
+          img.addEventListener("load", () => {
+            document.getElementById("placeholder-top10-" + (index - 1)).remove();
+          });
+        img.src = posterAPI + posterPath;
+
+        moviePoster.append(numberstop, img);
+        container.append(moviePoster);
 
         // Make top 10 ordered
         Array.from(container.children)
@@ -121,7 +140,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
  * @returns A `Promise<string>` with the logo path if it exists, empty string otherwise.
  */
 async function fetchMovieLogo(movieId) {
-  response = await fetch(baseURL + "/3/movie/" + movieId + "/images?api_key=" + api_key);
+  response = await fetch(baseURL + "/3/movie/" + movieId + "/images?api_key=" + api_key + "&include_image_language=en");
   let imgData = await response.json();
   let path = "";
   if (imgData.logos != undefined && imgData.logos.length > 0) path = posterAPI + imgData.logos[0].file_path;
