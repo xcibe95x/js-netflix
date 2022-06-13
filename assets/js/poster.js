@@ -8,7 +8,7 @@ function paintPlayer() {
   let moviePoster = document.querySelectorAll(".movie-poster");
   for (let i = 0; i < moviePoster.length; i++) {
     moviePoster[i].addEventListener("mouseenter", (e) => {
-      const id = e.target.id;
+      const id = e.target.getAttribute('movie');
 
       // fetch movie data after 500ms
       apiTimer = setTimeout(() => {

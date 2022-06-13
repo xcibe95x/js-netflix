@@ -60,7 +60,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
       // Regular Film Card
       if (cardType == 0 && filmPoster != null) {
         let moviePoster = document.createElement("div");
-        moviePoster.id = id;
+        moviePoster.setAttribute("movie", id);
         moviePoster.className = "movie-poster";
 
         let img = new Image();
@@ -86,7 +86,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
       // Big Film Card
       if (cardType == 1) {
         let moviePoster = document.createElement("div");
-        moviePoster.id = id;
+        moviePoster.setAttribute("movie", id);
         moviePoster.className = "big-movie-poster";
 
         let img = new Image();
@@ -104,7 +104,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
       // Top10 film card
       if (cardType == 2 && index <= 10) {
         let moviePoster = document.createElement("div");
-        moviePoster.id = id;
+        moviePoster.setAttribute("movie", id);
         moviePoster.setAttribute("order", index);
         moviePoster.className = "movie-poster top10flex";
 
