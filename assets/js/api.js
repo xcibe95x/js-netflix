@@ -140,7 +140,7 @@ function createCard(container, filmPoster, title, id, posterPath, cardType = 0, 
  * @returns A `Promise<string>` with the logo path if it exists, empty string otherwise.
  */
 async function fetchMovieLogo(movieId) {
-  response = await fetch(baseURL + "/3/movie/" + movieId + "/images?api_key=" + api_key);
+  response = await fetch(baseURL + "/3/movie/" + movieId + "/images?api_key=" + api_key + "&include_image_language=en");
   let imgData = await response.json();
   let path = "";
   if (imgData.logos != undefined && imgData.logos.length > 0) path = posterAPI + imgData.logos[0].file_path;
