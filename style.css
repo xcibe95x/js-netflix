@@ -705,7 +705,6 @@ ul li:not(:first-of-type) a:hover {
 }
 
 .card__placeholder {
-  min-height: 180px;
   width: 260px;
   flex-shrink: 0;
   border-radius: 4px;
@@ -714,6 +713,10 @@ ul li:not(:first-of-type) a:hover {
 
   background-color: #2f2f2f;
   animation: loading 2s ease-in-out infinite;
+}
+
+.placeholder--top10 {
+  min-height: 180px;
 }
 
 @keyframes loading {
@@ -824,102 +827,67 @@ ul li:not(:first-of-type) a:hover {
   content: "VM14";
 }
 
-.card-play,
-.card-add,
-.card-like,
-.card-more {
+.player-control {
   position: relative;
   border: 2px solid var(--gray);
   background: #1f2022;
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card-play:hover,
-.card-add:hover,
-.card-like:hover,
-.card-more:hover {
+.player-control:last-child {
+  margin-left: auto;
+  margin-right: 0.5em;
+}
+
+.control--white {
+  border: 2px solid var(--white);
+  background: var(--white);
+  color: #000;
+}
+
+.player-control:hover {
   border: 2px solid var(--white);
   cursor: pointer;
   position: relative;
 }
 
-.card-more:hover:before {
+.control--white:hover {
+  background: var(--smokeWhite);
+  border: 2px solid var(--smokeWhite);
+}
+
+.player-control:last-child:hover::before {
   content: "More info";
   width: 115px;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   padding: 10px;
   text-align: center;
   font-weight: 900;
   color: #000000;
   position: absolute;
   border-radius: 5px;
-  top:-50px ;
+  top: -50px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.card-more:hover::after{
+.player-control:last-child:hover::after {
   content: "";
   width: 0px;
   height: 0px;
   position: absolute;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid #E6E6E6;
+  border-top: 10px solid #e6e6e6;
   border-bottom: 10px solid transparent;
   left: 50%;
   transform: translateX(-50%);
   top: -12px;
- }
-
-
-.card-play:hover {
-  background: var(--smokeWhite);
-  border: 2px solid var(--smokeWhite);
-}
-
-.card-play {
-  border: 2px solid var(--white);
-  background: var(--white);
-}
-
-.card-more {
-  margin-left: 100px;
-}
-
-.card-play::before {
-  content: url("./assets/img/posters/VectorPlay.svg");
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transform: scale(0.8);
-}
-
-.card-add::before {
-  content: url("./assets/img/navigation/plus.svg");
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transform: scale(0.8);
-}
-
-.card-like::before {
-  content: url("./assets/img/navigation/like.svg");
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transform: scale(0.8);
-}
-
-.card-more::before {
-  content: url("./assets/img/navigation/down-arrow.svg");
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transform: scale(0.8);
 }
 
 .compatible {

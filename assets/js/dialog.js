@@ -1,6 +1,6 @@
 const MOVIE_ID = 338953;
 
-const btnHover = document.querySelector(".card-more");
+const btnHover = document.querySelector(".player-control:last-child");
 const dialogContainer = document.querySelector(".opacity-overlay");
 const crossBtn = document.querySelector(".dialog__cross");
 
@@ -72,6 +72,7 @@ function closeDialogOnClickOut(e) {
  * @param {object} film object containing film data
  */
 function appendSimilarFilm(container, film) {
+  if (film.backdrop_path == null) return;
   fetchMovieLogo(film.id).then((logo) => {
     container.innerHTML += `
       <div class="card">
