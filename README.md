@@ -3,7 +3,7 @@
 https://jfx.xcibe95x.com
 
 # Netflix Clone aka Godflex
-## Accellerator Program Team Project.
+## Accelerator Program Team Project.
 
 JS Version with API of the precedent netflix clone repo
 
